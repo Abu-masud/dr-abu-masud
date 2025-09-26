@@ -1,12 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-    <title>My First Page</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 1 - University Project</title>
+    <style>
+        body { 
+            background: lightblue; 
+            text-align: center;
+            font-family: Arial;
+        }
+        .section { 
+            padding: 50px; 
+            margin: 20px;
+            background: white;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World</h1>
-    <p>هذه أول صفحة لي.</p>
-    <script src="script.js"></script>
+    <h1>Welcome to Lab 1</h1>
+    
+    <!-- روابط داخل الصفحة -->
+    <a href="#html">HTML Basics</a> | 
+    <a href="#css">CSS Basics</a>
+    
+    <div id="html" class="section">
+        <h2>HTML Basics</h2>
+        <p>This section demonstrates HTML elements.</p>
+        <ul>
+            <li>Headings</li>
+            <li>Paragraphs</li>
+            <li>Lists</li>
+        </ul>
+    </div>
+    
+    <div id="css" class="section">
+        <h2>CSS Basics</h2>
+        <p>This section demonstrates CSS styling.</p>
+    </div>
 </body>
 </html>
