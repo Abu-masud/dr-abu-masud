@@ -1,13 +1,15 @@
+/* ==================== */
+/* LAB 2: CSS STYLES */
+/* ==================== */
+
 body {
-    background: lightblue;
-    text-align: center;
     font-family: Arial;
+    text-align: center;
 }
 
-.section {
-    background: white;
-    padding: 50px;
-    margin: 20px;
+.lab-section {
+    padding: 30px;
+    margin: 15px;
 }
 
 table {
@@ -16,6 +18,10 @@ table {
 }
 
 th, td {
-    border: 1px solid black;
+    border: 1px solid rgb(107, 148, 111);
     padding: 10px;
+}
+
+form {
+    padding: 20px;
 }
