@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Experiment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   
+    <h2>FList 1 </h2>
+    <ul>
+        <li>Fruit
+            <ul>
+                <li>Bananas</li>
+                <li>Apples
+                    <ul>
+                        <li>Green</li>
+                        <li>Red</li>
+                    </ul>
+                </li>
+                <li>Pears</li>
+            </ul>
+        </li>
+        <li>Vegetables</li>
+        <li>Meat</li>
+    </ul>
+
+    <h2>List 2</h2>
+    <ul>
+        <li>Fruit
+            <ul>
+                <li>Apples</li>
+                <li>Oranges</li>
+                <li>Pears</li>
+            </ul>
+        </li>
+        <li>Vegetables
+            <ul>
+                <li>Broccoli</li>
+                <li>Peas</li>
+                <li>Corn</li>
+            </ul>
+        </li>
+    </ul>
+
+   
+    <h2>Pizza</h2>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name"><br><br>
+
+        <label>Pizza Topping:</label><br>
+        <input type="radio" name="topping" value="supreme"> Supreme<br>
+        <input type="radio" name="topping" value="vegetarian"> Vegetarian<br>
+        <input type="radio" name="topping" value="hawaiian"> Hawaiian<br><br>
+
+        <label for="sauce">Pizza Sauce:</label>
+        <select id="sauce">
+            <option>Tomato</option>
+        </select><br><br>
+
+        <label>Optional Extras:</label><br>
+        <input type="checkbox"> Extra Cheese<br>
+        <input type="checkbox"> Gluten Free Base<br><br>
+
+        <label for="instructions">Delivery Instructions:</label><br>
+        <textarea id="instructions" rows="4" cols="30"></textarea><br><br>
+
+        <button type="submit">Send my Order</button>
+    </form>
+
+
+    <h2>Table</h2>
+    <table>
+        <tr>
+            <td id="cell1">1</td>
+            <td id="cell2" colspan="2">2</td>
+            <td id="cell3">3</td>
+        </tr>
+        <tr>
+            <td id="cell4">4</td>
+            <td id="cell5">5</td>
+            <td id="cell6" rowspan="2">6</td>
+        </tr>
+        <tr>
+            <td id="cell7" colspan="2">7</td>
+        </tr>
+    </table>
+
+</body>
+</html>
