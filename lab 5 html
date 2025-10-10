@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 5 - JavaScript Basics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #result {
+            font-weight: bold;
+            color: green;
+        }
+        #evenNumbers {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Part 1: Welcome Message with inline JavaScript -->
+    <div class="section">
+        <h2>Part 1: Welcome Message (Inline JavaScript)</h2>
+        <p id="welcomeMessage">Message to user</p>
+        <!-- Inline JavaScript in onclick attribute -->
+        <button onclick="document.getElementById('welcomeMessage').textContent = 'Welcome Student'">
+            I am a student
+        </button>
+        <button onclick="document.getElementById('welcomeMessage').textContent = 'Welcome Teacher'">
+            I am a teacher
+        </button>
+    </div>
+
+    <!-- Part 2: Welcome Message with JavaScript functions -->
+    <div class="section">
+        <h2>Part 2: Welcome Message (JavaScript Functions)</h2>
+        <p id="welcomeMessage2">Message to user</p>
+        <!-- Using JavaScript functions -->
+        <button onclick="showStudent()">I am a student</button>
+        <button onclick="showTeacher()">I am a teacher</button>
+    </div>
+
+    <!-- Part 3: Number Calculator -->
+    <div class="section">
+        <h2>Part 3: Number Calculator</h2>
+        <form onsubmit="calculateSum(event)">
+            <label>First Number: <input type="number" id="num1" required></label><br>
+            <label>Second Number: <input type="number" id="num2" required></label><br>
+            <button type="submit">Calculate Sum</button>
+        </form>
+        <p id="result"></p>
+    </div>
+
+    <!-- Part 4: Even Numbers -->
+    <div class="section">
+        <h2>Part 4: Even Numbers (1-100)</h2>
+        <button onclick="displayEvenNumbers()">Show Even Numbers</button>
+        <div id="evenNumbers"></div>
+    </div>
+
+    <script>
+        // Part 2: Functions for welcome messages
+        function showStudent() {
+            // Change text to Welcome Student using function
+            document.getElementById('welcomeMessage2').textContent = 'Welcome Student';
+        }
+
+        function showTeacher() {
+            // Change text to Welcome Teacher using function
+            document.getElementById('welcomeMessage2').textContent = 'Welcome Teacher';
+        }
+
+        // Part 3: Calculate sum of two numbers
+        function calculateSum(event) {
+            // Prevent form submission and page refresh
+            event.preventDefault();
+            
+            // Get values from input fields
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            
+            // Calculate sum
+            const sum = num1 + num2;
+            
+            // Display result in bold
+            document.getElementById('result').innerHTML = '<strong>Result: ' + sum + '</strong>';
+            
+            // Show popup message
+            alert('Calculation done!');
+        }
+
+        // Part 4: Display even numbers between 1 and 100
+        function displayEvenNumbers() {
+            const container = document.getElementById('evenNumbers');
+            let numbers = '';
+            
+            // Loop through numbers 1 to 100
+            for (let i = 1; i <= 100; i++) {
+                // Check if number is even (divisible by 2)
+                if (i % 2 === 0) {
+                    numbers += i + ' ';
+                }
+            }
+            
+            // Display even numbers
+            container.textContent = 'Even Numbers: ' + numbers;
+        }
+    </script>
+</body>
+</html>
