@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        let meals = [
+            {name: "Pasta", image: "https://images.unsplash.com/photo-1551978253-90d19e99a8b1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=400&q=80", calorieCount: 700, vegetarian: true},
+            {name: "Fried Chicken", image: "https://images.unsplash.com/photo-1626543881477-22d26f03e2c6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=400&q=80", calorieCount: 300, vegetarian: true},
+            {name: "Cheeseburger", image: "https://images.unsplash.com/photo-1568901346528-42273f91f163?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=400&q=80", calorieCount: 650, vegetarian: false}
+        ];
+        function createMealCard(m) {
+            return `<div class="meal-card"><h3>${m.name}</h3><img src="${m.image}" alt="${m.name}"><p><strong>Calorie Count:</strong> ${m.calorieCount}</p><p><strong>Vegetarian:</strong> ${m.vegetarian ? 'Yes' : 'No'}</p></div>`;
+        }
+        function displayAllMeals() {
+            document.getElementById('suggestionArea').innerHTML = '';
+            document.getElementById('menuContainer').innerHTML = meals.map(createMealCard).join('');
+        }
+        function addNewMeal() {
+            const name = prompt("Enter the meal name:");
+            if (!name) return;
+            const image = prompt("Enter the meal image URL:");
+            if (!image) return;
+            const calories = prompt("Enter the calorie count (number):");
+            if (isNaN(calories) || !calories) return alert("Invalid calorie count.");
+            const isVeg = prompt("Is this meal vegetarian? (Yes/No):").toLowerCase() === 'yes';
+            meals.push({name: name, image: image, calorieCount: parseInt(calories), vegetarian: isVeg});
+            alert(`${name} has been added!`);
+            displayAllMeals();
+        }
+        function suggestMeal() {
+            const i = Math.floor(Math.random() * meals.length);
+            const m = meals[i];
+            document.getElementById('menuContainer').innerHTML = '';
+            document.getElementById('suggestionArea').innerHTML = `<div class="meal-card" style="background-color: #ffb700;"><h2>We Suggest This Meal For You</h2>${createMealCard(m)}</div>`;
+        }
+        document.addEventListener('DOMContentLoaded', displayAllMeals);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="button-section">
+            <button onclick="addNewMeal()">Add new meal</button>
+            <button onclick="suggestMeal()">Suggest A Meal</button>
+            <button onclick="displayAllMeals()">Display Meals</button>
+        </div>
+        <div id="suggestionArea" class="suggestion-area"></div>
+        <div id="menuContainer" class="menu-container"></div>
+    </div>
+</body>
+</html>
